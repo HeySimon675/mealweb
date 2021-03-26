@@ -10,5 +10,8 @@ public interface MealRepository {
     @GET("search.php")
     Call<MealsDTO> findByInitial(@Query("f")String initial);
 
+    @GET("search.php")
+    Call<MealsDTO> findByName(@Query("s")String mealName);
+
 
 }

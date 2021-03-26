@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title th:text="${title != null ? title + ' - MealWeb' : 'MealWeb'}"></title>
+    <link rel="icon" href="https://topi.io/wp-content/uploads/2018/06/cropped-LogoFAVICON1-1-32x32.jpeg" sizes="32x32">
+    <meta name="theme-color" content="#8257E5">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+</head>
+
+<header th:fragment="seach-header">
+
+</header>
+
+<div th:fragment="pagination" class="btn-group-sm pagination mb-3 float-right" role="group" th:if="${pageList != null && !pageList.isEmpty()}" th:with="currentUrl=(${(#httpServletRequest.requestURI + '?' + #strings.defaultString(#httpServletRequest.queryString, '')).replace('&page='+(pageLetter.name()), '')})">
+    <a class="btn btn-secondary" th:href="@{${currentUrl + '&page=' + pageLetter}}"
+       th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.B}"><i class="fas fa-angle-double-left"></i></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + pageLetter}}"
+       th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.A}"><i class="fas fa-angle-left"></i></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter - 1)}}"
+       th:text="${pageLetter}" th:if="${(pageLetter) > br.com.topi.mealweb.utils.Letter.A && (pageLetter.name.charAt(0)+1) == br.com.topi.mealweb.utils.Letter.Z.name().charAt(0)}"></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + pageLetter}}" th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.A}"
+       th:text="${pageLetter}"></a>
+    <span class="btn btn-primary"
+          th:text="${(pageLetter.name().charAt(0) + 1)}"></span>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 2)}}"
+       th:text="${pageLetter.name().charAt(0) + 2}" th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 1)}"></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 3)}}"
+       th:text="${pageLetter.name().charAt(0) + 3}" th:if="${pageLetter == 0 && pageList.totalPages.name().charAt(0) > 2}"></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 2)}}"
+       th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 1)}"><i class="fas fa-angle-right"></i></a>
+    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + br.com.topi.mealweb.utils.Letter.Z}}"
+       th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 2)}"><i class="fas fa-angle-double-right"></i></a>
+</div>
+
+<body>
+
+<div th:fragment="jsfragment">
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</div>
+
+</body>
+</html>
