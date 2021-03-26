@@ -1,16 +1,34 @@
 package br.com.topi.mealweb.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MealDTO {
 
+    @SerializedName("idMeal")
+    @Expose
     private Long id;
 
-    private String strMeal;
+    @SerializedName("strMeal")
+    @Expose
+    private String name;
 
-    private String strCategory;
+    @SerializedName("strCategory")
+    @Expose
+    private String category;
 
-    private String strMealTumb;
+    @SerializedName("strMealThumb")
+    @Expose
+    private String tumbnail;
 
-    private String strMealInstructions;
+    @SerializedName("strInstructions")
+    @Expose
+    private String instructions;
 
     public MealDTO() {}
 
@@ -22,35 +40,35 @@ public class MealDTO {
         this.id = id;
     }
 
-    public String getStrMeal() {
-        return strMeal;
+    public String getName() {
+        return name;
     }
 
-    public void setStrMeal(String strMeal) {
-        this.strMeal = strMeal;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStrCategory() {
-        return strCategory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setStrCategory(String strCategory) {
-        this.strCategory = strCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getStrMealTumb() {
-        return strMealTumb;
+    public String getTumbnail() {
+        return tumbnail;
     }
 
-    public void setStrMealTumb(String strMealTumb) {
-        this.strMealTumb = strMealTumb;
+    public void setTumbnail(String tumbnail) {
+        this.tumbnail = tumbnail;
     }
 
-    public String getStrMealInstructions() {
-        return strMealInstructions;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setStrMealInstructions(String strMealInstructions) {
-        this.strMealInstructions = strMealInstructions;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }
