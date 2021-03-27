@@ -36,26 +36,6 @@
     }
   }
 
-  &.btn-gerar-certificado{
-    border: 1px solid $yellow;
-    background-color: $gray-800;
-    color: $white;
-
-    .icon{
-      color: $yellow;
-      font-size: 20px;
-
-      &:hover{
-        color: $yellow;
-      }
-    }
-
-    &:hover{
-      color: $white;
-      background-color: $gray-900;
-    }
-  }
-
   &.float-label {
     .btn-label {
       display: none;

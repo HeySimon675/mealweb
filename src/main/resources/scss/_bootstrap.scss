@@ -5,7 +5,7 @@ $user-selects: blue(#000000);
 
 // Required
 @import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
+//@import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
 @import "bootstrap-theme/var";
@@ -61,7 +61,7 @@ $user-selects: blue(#000000);
 
 
 body {
-  background-color: $gray-900;
+  background-color: $secondary;
   color: $white;
 
   min-height: 100vh;
