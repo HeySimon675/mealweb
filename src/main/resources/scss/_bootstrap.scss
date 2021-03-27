@@ -44,10 +44,7 @@ $user-selects: blue(#000000);
 @import "node_modules/bootstrap/scss/popover";
 @import "node_modules/bootstrap/scss/carousel";
 @import "node_modules/bootstrap/scss/spinners";
-
-
 @import "node_modules/bootstrap/scss/utilities";
-
 
 // theme
 @import "bootstrap-theme/nav-link";
@@ -59,15 +56,6 @@ $user-selects: blue(#000000);
 @import "bootstrap-theme/input-group";
 @import "bootstrap-theme/table";
 
-
-body {
-  background-color: $secondary;
-  color: $white;
-
-  min-height: 100vh;
-
-  overflow: auto;
-}
 
 .jumbotron {
   border-radius: 0;

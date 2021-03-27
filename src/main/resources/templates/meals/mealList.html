@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>MealWeb</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/general.html :: headerfiles"></head>
 <body>
+    <div th:replace="fragment/general :: search-header"></div>
+    <div class="content-container table-responsive col-md-10 mx-auto mt-3 pb-3">
+        <table class="table content-table">
+            <tr th:each="meal : ${pageList}">
+                <td>
+                    <p class="text-secondary">Nome:</p>
+                    <p class="text-truncate" th:text="${meal.name}"></p>
+                </td>
+                <td>
+                    <p class="text-secondary">Categoria:</p>
+                    <p class="text-truncate" th:text="${meal.category}"></p>
+                </td>
+                <td>
+                    <p class="text-secondary ">Área:</p>
+                    <p class="text-truncate" th:text="${meal.area}"></p>
+                </td>
+                <td class="content-table-va-center">
+                    <p class="font-weight-bold h6 text-secondary align-content-center ">Mais informações <i class="fa-arrow-alt-down"></i></p>
+                </td>
+            </tr>
+        </table>
+    </div>
 
+
+<!--    <div th:replace="fragment/general.html :: pagination"></div>-->
+    <div th:replace="fragment/general.html :: jsfragment"></div>
 </body>
 </html>

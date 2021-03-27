@@ -18,6 +18,10 @@ public class MealDTO {
     @Expose
     private String name;
 
+    @SerializedName("strArea")
+    @Expose
+    private String area;
+
     @SerializedName("strCategory")
     @Expose
     private String category;
@@ -46,6 +50,14 @@ public class MealDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getCategory() {

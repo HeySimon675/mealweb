@@ -1,2 +1,32 @@
 @import "fontawesome";
 @import "bootstrap";
+
+body {
+  background-color: $cambridge-blue;
+  color: $black;
+
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.content-container{
+  background-color: $pale-spring-bud;
+}
+
+.content-table{
+
+
+  p{
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  &-va-center{
+    vertical-align: inherit !important;
+
+    p{
+      margin-bottom: 0;
+    }
+  }
+
+}
