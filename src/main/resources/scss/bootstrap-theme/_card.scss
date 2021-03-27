@@ -1,0 +1,319 @@
+.accordion>.card {
+  overflow: visible;
+}
+
+.card {
+  margin-top: 53px;
+  margin-bottom: 61px;
+  overflow: visible;
+
+  .card-header {
+    position: relative;
+    padding: 0 $h4-font-size $h4-font-size/2;
+
+    border: none;
+    text-align: left;
+
+    color: $white;
+
+    .card-title {
+      font-weight: $font-weight-normal;
+    }
+
+    .card-toggle {
+      display: inline-flex;
+      align-items: center;
+    }
+
+
+
+    &[aria-expanded=true] {
+      //background-color: $white;
+      //color: $gray-900;
+
+      .card-title {
+        font-weight: $font-weight-bold;
+      }
+
+      .card-toggle {
+        background: $primary;
+
+        &::after {
+          background-color: $gray-900;
+          color: $primary;
+          content: "\f0d8";
+        }
+      }
+
+      &:hover .card-toggle {
+        &::after {
+          background-color: $white;
+          color: $gray-900;
+
+        }
+      }
+    }
+  }
+
+  .card-toggle {
+    position: relative;
+    display: inline-flex;
+    margin: -12px 0 0 -24px;
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+
+    background: $white;
+    color: $gray-900;
+
+    transform: translateY(-$spacer/2);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+
+      font-family: "Font Awesome 5 Free";
+      content: "\f0d7";
+      font-weight: 900;
+      font-size: $h4-font-size;
+
+      background-color: $primary;
+      color: $gray-900;
+
+      transform: translateX(100%);
+      transition: all ease .2s;
+    }
+
+
+  }
+
+  .card-toggle-without-after {
+    position: relative;
+    display: inline-flex;
+    margin: -12px 0 0 -24px;
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+
+    background: $white;
+    color: $gray-900;
+
+    transform: translateY(-$spacer/2);
+  }
+
+
+  &:hover .card-toggle {
+    &::after {
+      background-color: $gray-900;
+      color: $primary;
+    }
+  }
+}
+
+.card-curso-soon-content {  
+  i {
+    color: #FFE607;
+    font-size: 20px;
+    position: absolute;
+    transition: top .2s;
+    top: 2%;
+    right: 18px;
+  }
+
+  .card-curso-soon-info {
+    display: flex;
+    background-color: #FEE605;
+    padding: 7px 14px 7px 14px;
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    bottom: 16%;
+    top: 15px;
+    left: 0;
+    z-index: 3;
+    height: 36px;
+  
+    .card-curso-soon-text-ln1 {
+      font-size: 14px;
+      font-family: DMSans-Bold;
+      color: #1B1B1B;
+    }
+  
+    .card-curso-soon-text-ln2 {
+      font-size: 14px;
+      font-family: DMSans-Bold;
+      color: #1B1B1B;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .card-curso-soon-info {
+      height: 56px;
+    }
+  }
+
+  &__matricula-encerrar{
+    position: absolute;
+    top: $spacer/2;
+    left: -$spacer/2;
+    width: 100%;
+    z-index: 3;
+
+    height: 25px;
+
+    .card-curso-soon-info {
+      display: flex;
+      background-color: #FEE605;
+      padding: 7px 14px 7px 14px;
+      flex-direction: column;
+      width: fit-content;
+      position: absolute;
+      bottom: 16%;
+      top: 35px;
+      left: 0;
+      z-index: 3;
+      height: 36px;
+
+      .card-curso-soon-text-ln1 {
+        font-size: 14px;
+        font-family: DMSans-Bold;
+        color: #1B1B1B;
+      }
+
+      .card-curso-soon-text-ln2 {
+        font-size: 14px;
+        font-family: DMSans-Bold;
+        color: #1B1B1B;
+      }
+    }
+  }
+}
+
+.card-curso-soon {
+  opacity: 0.4;
+}
+
+.card-curso {
+
+  display: block;
+  position: relative;
+  text-decoration: none;
+
+  margin-bottom: $spacer;
+
+  height: 350px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: $spacer*2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: $primary;
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 22px;
+    bottom: 22px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: $black;
+
+    transition: background ease .2s, top ease .2s;
+
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 85px;
+    z-index: 3;
+
+    line-height: 120%;
+
+    background: $white;
+    color: $gray-900;
+
+    padding: $spacer/2;
+    font-size: $h4-font-size;
+  }
+
+  i {
+    position: absolute;
+    left: 10px;
+    bottom: 32px;
+    z-index: 2;
+
+    display: flex;
+    width: 65px;
+    height: 55px;
+
+    justify-content: center;
+    align-items: center;
+
+    background: $primary;
+    color: $gray-900;
+
+
+    &::before {
+      transform: scale(1.4);
+    }
+  }
+
+  &:hover + .card-curso-soon-content {
+    i {
+      transition: top .2s;
+      top: 0%;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    i {
+      background: $gray-900;
+      color: $primary;
+    }
+
+    .card-curso__img {
+      top: -$spacer/2;
+    }
+  }
+
+  .progress {
+    position: absolute;
+    top: $spacer/2;
+    left: -$spacer/2;
+    width: 180px;
+    z-index: 3;
+
+    height: 25px;
+
+    &-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      right: 5px;
+      top: 0;
+      bottom: 0;
+      color: $black;
+    }
+  }
+}

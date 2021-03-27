@@ -1,0 +1,142 @@
+
+// navbar
+
+.navbar .nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: $white;
+
+  + .nav-item {
+    margin-left: $spacer/2;
+  }
+}
+
+// dropdown
+
+
+.nav-link.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+
+  &:hover,
+  &:focus,
+  &[aria-expanded=true]{
+    //flex-direction: row-reverse; //hover invertido
+
+    &::after {
+      margin-left: 0;
+      margin-right: .255em;
+    }
+
+  }
+
+}
+
+.dropdown-divider {
+  margin: $dropdown-divider-margin-y;
+  border-width: 2px;
+}
+
+.dropdown-item,
+.nav-link{
+  text-decoration: none;
+  @extend %menu-item;
+}
+
+
+.nav-link {
+  color: $white;
+  &:hover,
+  &:focus,
+  &[aria-expanded=true]{
+    color: $white;
+
+    /*&::before {
+      right: .5rem;
+    }*/ //hover invertido
+
+  }
+}
+
+
+
+///
+.list-group-item {
+  background: transparent;
+  color: $white;
+
+  transition: all ease .2s;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background: $gray-900;
+  }
+
+  &.active {
+    background: $black;
+    color: $primary;
+    border-color: transparent;
+
+    .icon {
+      color: $gray-800;
+    }
+
+    &.unread{
+      .icon {
+        color: $primary;
+      }
+    }
+  }
+
+  .icon {
+    color: $black;
+  }
+
+  &.unread {
+    .icon {
+      color: $primary;
+    }
+    font-weight: bold;
+  }
+}
+
+.nav-tabs {
+  border-bottom: 1px solid $black;
+
+  .nav-item {
+    margin-bottom: -$nav-tabs-border-width;
+  }
+
+  .nav-link {
+    color: $black;
+    border: $nav-tabs-border-width solid transparent;
+    @include border-top-radius($nav-tabs-border-radius);
+
+    @include hover-focus() {
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+
+    &.disabled {
+      color: $nav-link-disabled-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    color: $white;
+    background-color: $black;
+    border-color: $black;
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}

@@ -16,4 +16,9 @@ public class HomeController {
         return "error";
     }
 
+    @GetMapping("/styles")
+    public String bootstrapStyles(){
+        return "../bootstrap";
+    }
+
 }

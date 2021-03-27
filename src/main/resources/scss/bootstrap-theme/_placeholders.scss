@@ -1,0 +1,37 @@
+
+// estilo do item do menu com a estrutura
+%menu-item {
+  display: flex;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: $font-weight-normal;
+
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 2px;
+    width: 0;
+    margin-top: 0px;
+    display: block;
+    box-sizing: border-box;
+    transition: width ease .2s;
+    border-top: 2px solid $primary;
+    position: absolute;
+    bottom: 0;
+
+  }
+
+  &:hover,
+  &[aria-expanded=true]{
+
+    /*text-align: right;
+    transform: scale(-1, 1);*/ //hover invertido
+    &::before {
+      width: 40px;
+    }
+  }
+}

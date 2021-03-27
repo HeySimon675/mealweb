@@ -1,0 +1,39 @@
+.table-bordered{
+  border: 1px solid $gray-7070;
+
+  tbody, thead{
+    tr{
+
+      &:first-child{
+        td{
+          border: 1px solid $gray-7070!important;
+        }
+      }
+
+      td, th{
+        border: 1px solid $gray-7070;
+      }
+
+      th{
+        color: $gray-8989;
+      }
+
+      td{
+        color: $white;
+      }
+
+    }
+  }
+}
+
+.column-sm{
+  @media (max-width: 901px){
+    width: 20%;
+  }
+  @media (min-width: 901px){
+    width: 15%;
+  }
+  @media (min-width: 1024px){
+    width: 10%;
+  }
+}

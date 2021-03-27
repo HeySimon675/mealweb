@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/general.html :: headerfiles">
+    <meta charset="UTF-8"/>
+</head>
+<body class="main-body">
+<section class="d-flex flex-column page-wrap">
+    <header th:replace="fragment/general.html :: seach-header"></header>
+    <div class="inner-scroll d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 col-md-6 offset-2">
+                    <h1> Ooooops! </h1>
+                    <h3> Algo deu errado... <i class="far fa-sad-tear text-primary "></i></h3>
+                    <a href="/home" class="btn btn-default btn-lg">
+                        Ir para a home
+                        <i class="fas fa-home btn-icon btn-icon--right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="fragment/general.html :: jsfragment"></div>
+</body>
+</html>
