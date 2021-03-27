@@ -5,28 +5,56 @@
     <div th:replace="fragment/general :: search-header"></div>
     <div class="content-container table-responsive col-md-10 mx-auto mt-3 pb-3">
         <table class="table content-table">
-            <tr th:each="meal : ${pageList}">
-                <td>
-                    <p class="text-secondary">Nome:</p>
-                    <p class="text-truncate" th:text="${meal.name}"></p>
-                </td>
-                <td>
-                    <p class="text-secondary">Categoria:</p>
-                    <p class="text-truncate" th:text="${meal.category}"></p>
-                </td>
-                <td>
-                    <p class="text-secondary ">Área:</p>
-                    <p class="text-truncate" th:text="${meal.area}"></p>
-                </td>
-                <td class="content-table-va-center">
-                    <p class="font-weight-bold h6 text-secondary align-content-center ">Mais informações <i class="fa-arrow-alt-down"></i></p>
-                </td>
-            </tr>
+            <th:block th:each="meal : ${pageList}">
+                <tr>
+                    <td>
+                        <p class="text-secondary">Nome:</p>
+                        <p class="text-truncate" th:text="${meal.name}"></p>
+                    </td>
+                    <td>
+                        <p class="text-secondary">Categoria:</p>
+                        <p class="text-truncate" th:text="${meal.category}"></p>
+                    </td>
+                    <td>
+                        <p class="text-secondary ">Área:</p>
+                        <p class="text-truncate" th:text="${meal.area}"></p>
+                    </td>
+                    <td class="content-table-va-center">
+                        <a data-toggle="collapse" onclick="showInfo(this)" aria-expanded="false" th:id="${meal.id}" role="button" >
+                            <p class="font-weight-bold h6 text-secondary align-content-center ">Mais informações <i class="fa fa-arrow-alt-down"></i></p>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="content-table-collapse d-none" th:id="'collapse'+${meal.id}">
+                    <td th:text="${meal.instructions}">
+                    </td>
+                    <td>
+                       <img th:src="${meal.tumbnail}">
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </th:block>
         </table>
     </div>
 
 
 <!--    <div th:replace="fragment/general.html :: pagination"></div>-->
     <div th:replace="fragment/general.html :: jsfragment"></div>
+<script>
+    function showInfo(e) {
+        const id = e.getAttribute("id");
+        const collapse = $('#collapse'+id);
+
+
+        console.log(collapse.attr("class"));
+
+        if(collapse.attr("class") !== "content-table-collapse d-none"){
+            collapse.addClass("d-none");
+        }else{
+            collapse.removeClass("d-none");
+        }
+    }
+</script>
 </body>
 </html>

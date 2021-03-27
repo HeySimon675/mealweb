@@ -15,10 +15,19 @@ body {
 
 .content-table{
 
+  td{
+    max-width: 700px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 
   p{
     font-weight: 700;
     font-size: 0.875rem;
+  }
+
+  img{
+    max-width: 200px;
   }
 
   &-va-center{
@@ -29,4 +38,28 @@ body {
     }
   }
 
+}
+
+.content-table > tbody > tr:first-child > td {
+  border: none;
+}
+
+.content-table > tbody > tr > td:first-child {
+  $max-td-width: 700px;
+  $min-td-width: 700px;
+
+
+  @media screen and (min-width: 900px) {
+    $min-td-width : 300px
+  }
+
+  @media screen and (min-width: 1250px) {
+    $min-td-width : 500px
+  }
+
+  @media screen and (min-width: 1900px){
+    $max-td-width : 700px
+  }
+  max-width: $max-td-width;
+  min-width: $min-td-width;
 }
