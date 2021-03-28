@@ -13,53 +13,37 @@ body {
   background-color: $pale-spring-bud;
 }
 
-.content-table{
 
-  td{
-    max-width: 700px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
 
-  p{
+.search-header{
+
+  margin-top: 2rem;
+  align-items: center;
+
+  h1{
+    margin-bottom: 0;
+    font-size: 1.8rem;
     font-weight: 700;
-    font-size: 0.875rem;
+    color: $secondary;
   }
 
-  img{
-    max-width: 200px;
+  form{
+    margin-top: 5px;
+    float: right;
   }
 
-  &-va-center{
-    vertical-align: inherit !important;
+  button{
+    border: 1px solid $rifle-green;
+    background-color: $primary;
+    height: 2rem;
+    width: 2rem;
 
-    p{
-      margin-bottom: 0;
-    }
+    align-content: center;
+    justify-content: center;
+
   }
 
-}
-
-.content-table > tbody > tr:first-child > td {
-  border: none;
-}
-
-.content-table > tbody > tr > td:first-child {
-  $max-td-width: 700px;
-  $min-td-width: 700px;
-
-
-  @media screen and (min-width: 900px) {
-    $min-td-width : 300px
+  input{
+    height: 1rem;
   }
-
-  @media screen and (min-width: 1250px) {
-    $min-td-width : 500px
-  }
-
-  @media screen and (min-width: 1900px){
-    $max-td-width : 700px
-  }
-  max-width: $max-td-width;
-  min-width: $min-td-width;
 }

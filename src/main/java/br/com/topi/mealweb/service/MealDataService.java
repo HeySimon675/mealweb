@@ -33,4 +33,16 @@ public class MealDataService {
 
         return mealsDTO;
     }
+
+    public MealsDTO findMealsByName(String name) {
+        MealsDTO mealsDTO = new MealsDTO();
+        try {
+            Response<MealsDTO> mealsResponse = repository.findByName(name).execute();
+            mealsDTO = mealsResponse.body();
+        } catch (IOException e) {
+            logger.error("Erro ao buscar refeições", e);
+        }
+        return mealsDTO;
+
+    }
 }

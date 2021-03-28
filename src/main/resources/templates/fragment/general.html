@@ -17,10 +17,21 @@
 
 
 <header th:fragment="search-header">
+    <div class="search-header row col-md-10 mx-auto justify-content-between">
+        <div class="col-5">
+            <h1>MealWeb - listando refeições</h1>
+        </div>
 
+        <form method="get" th:action="@{'/meals'}" class="row col-5 justify-content-end">
+            <input type="text" class="col-5 search-input form-control" placeholder="      Pesquisar" id="name" name="name" >
+            <button type="submit" class=""><span class="fas fa-search"></span></button>
+        </form>
+
+
+    </div>
 </header>
 
-<div th:fragment="pagination" class="btn-group-sm pagination pt-2 col-md-10 float-right" role="group">
+<div th:fragment="pagination" class="btn-group-sm pagination mx-auto pt-2 col-md-10 justify-content-end" role="group">
     <th:block th:each="letter : ${T(br.com.topi.mealweb.utils.Letter).values()}">
         <div class=""><a th:href="@{/meals(page=${letter.name()})}"
            th:text="${letter}"

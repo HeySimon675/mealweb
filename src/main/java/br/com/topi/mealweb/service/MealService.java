@@ -12,6 +12,14 @@ public class MealService {
     @Autowired
     MealDataService dataService;
 
+    public List<MealDTO> findByParams(String initial,String name){
+        if(name != null){
+            return dataService.findMealsByName(name).getMeals();
+        }
+        return findByInitialLetter(initial);
+
+    }
+
     public List<MealDTO> findByInitialLetter(String initial){
         return dataService.findMealsByInitial(initial).getMeals();
     }
