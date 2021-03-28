@@ -17,7 +17,7 @@ public class MealController {
     private MealService service;
 
     @GetMapping
-    public String findByParams(@RequestParam(value = "page", defaultValue = "a")String initial, @RequestParam(value = "name")String name, Model model){
+    public String findByParams(@RequestParam(value = "page", defaultValue = "a")String initial, @RequestParam(value = "name",required = false)String name, Model model){
         model.addAttribute("pageLetter", Letter.valueOf(initial.toUpperCase()));
         model.addAttribute("pageList", service.findByParams(initial,name));
 
