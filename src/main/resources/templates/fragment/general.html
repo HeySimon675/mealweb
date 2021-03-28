@@ -16,29 +16,20 @@
 
 
 
-<header th:fragment="seach-header">
+<header th:fragment="search-header">
 
 </header>
 
-<div th:fragment="pagination" class="btn-group-sm pagination mb-3 float-right" role="group" th:if="${pageList != null && !pageList.isEmpty()}" th:with="currentUrl=(${(#httpServletRequest.requestURI + '?' + #strings.defaultString(#httpServletRequest.queryString, '')).replace('&page='+(pageLetter.name()), '')})">
-    <a class="btn btn-secondary" th:href="@{${currentUrl + '&page=' + pageLetter}}"
-       th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.B}"><i class="fas fa-angle-double-left"></i></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + pageLetter}}"
-       th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.A}"><i class="fas fa-angle-left"></i></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter - 1)}}"
-       th:text="${pageLetter}" th:if="${(pageLetter) > br.com.topi.mealweb.utils.Letter.A && (pageLetter.name.charAt(0)+1) == br.com.topi.mealweb.utils.Letter.Z.name().charAt(0)}"></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + pageLetter}}" th:if="${pageLetter > br.com.topi.mealweb.utils.Letter.A}"
-       th:text="${pageLetter}"></a>
-    <span class="btn btn-primary"
-          th:text="${(pageLetter.name().charAt(0) + 1)}"></span>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 2)}}"
-       th:text="${pageLetter.name().charAt(0) + 2}" th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 1)}"></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 3)}}"
-       th:text="${pageLetter.name().charAt(0) + 3}" th:if="${pageLetter == 0 && pageList.totalPages.name().charAt(0) > 2}"></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + (pageLetter.name().charAt(0) + 2)}}"
-       th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 1)}"><i class="fas fa-angle-right"></i></a>
-    <a class="btn btn-secondary" th:href="@{${currentUrl +'&page=' + br.com.topi.mealweb.utils.Letter.Z}}"
-       th:if="${br.com.topi.mealweb.utils.Letter.Z > (pageLetter.name().charAt(0) + 2)}"><i class="fas fa-angle-double-right"></i></a>
+<div th:fragment="pagination" class="btn-group-sm pagination pt-2 col-md-10 float-right" role="group">
+    <th:block th:each="letter : ${T(br.com.topi.mealweb.utils.Letter).values()}">
+        <div class=""><a th:href="@{/meals(page=${letter.name()})}"
+           th:text="${letter}"
+           th:class="${letter == pageLetter} ? 'btn btn-pagination-active' : 'btn btn-pagination' "></a></div>
+    </th:block>
+     <div >
+
+
+     </div>
 </div>
 
 <body>

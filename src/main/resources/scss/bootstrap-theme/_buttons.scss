@@ -22,6 +22,15 @@
     }
   }
 
+  &-pagination{
+    background-color: $pistachio;
+
+    &-active{
+      background-color: $rifle-green;
+      color: white;
+    }
+  }
+
   &-block {
     display: block;
   }
