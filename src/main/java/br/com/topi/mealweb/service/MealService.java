@@ -14,13 +14,17 @@ public class MealService {
 
     public List<MealDTO> findByParams(String initial,String name){
         if(name != null){
-            return dataService.findMealsByName(name).getMeals();
+            return findByName(name);
         }
         return findByInitialLetter(initial);
 
     }
 
-    public List<MealDTO> findByInitialLetter(String initial){
+    private List<MealDTO> findByName(String name){
+        return dataService.findMealsByName(name).getMeals();
+    }
+
+    private List<MealDTO> findByInitialLetter(String initial){
         return dataService.findMealsByInitial(initial).getMeals();
     }
 
