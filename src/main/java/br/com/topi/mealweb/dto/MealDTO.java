@@ -36,6 +36,12 @@ public class MealDTO {
 
     public MealDTO() {}
 
+    public MealDTO(Long id, String name, String instructions) {
+        this.id = id;
+        this.name = name;
+        this.instructions = instructions;
+    }
+
     public Long getId() {
         return id;
     }

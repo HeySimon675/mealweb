@@ -1,6 +1,6 @@
 package br.com.topi.mealweb.service;
 
-import br.com.topi.mealweb.dto.MealsDTO;
+import br.com.topi.mealweb.dto.MealDTOList;
 import br.com.topi.mealweb.repository.MealClient;
 import br.com.topi.mealweb.repository.MealRepository;
 import org.slf4j.Logger;
@@ -21,28 +21,28 @@ public class MealDataService {
         repository = MealClient.getMealApi();
     }
 
-    public MealsDTO findMealsByInitial(String initial) {
-        MealsDTO mealsDTO = new MealsDTO();
+    public MealDTOList findMealsByInitial(String initial) {
+        MealDTOList mealDTOList = new MealDTOList();
 
         try {
-                Response<MealsDTO> mealsResponse = repository.findByInitial(initial).execute();
-                mealsDTO = mealsResponse.body();
+                Response<MealDTOList> mealsResponse = repository.findByInitial(initial).execute();
+                mealDTOList = mealsResponse.body();
         } catch (IOException e) {
             logger.error("Erro ao buscar refeições", e);
         }
 
-        return mealsDTO;
+        return mealDTOList;
     }
 
-    public MealsDTO findMealsByName(String name) {
-        MealsDTO mealsDTO = new MealsDTO();
+    public MealDTOList findMealsByName(String name) {
+        MealDTOList mealDTOList = new MealDTOList();
         try {
-            Response<MealsDTO> mealsResponse = repository.findByName(name).execute();
-            mealsDTO = mealsResponse.body();
+            Response<MealDTOList> mealsResponse = repository.findByName(name).execute();
+            mealDTOList = mealsResponse.body();
         } catch (IOException e) {
             logger.error("Erro ao buscar refeições", e);
         }
-        return mealsDTO;
+        return mealDTOList;
 
     }
 }

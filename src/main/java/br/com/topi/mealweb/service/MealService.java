@@ -10,17 +10,25 @@ import java.util.List;
 public class MealService {
 
     @Autowired
-    MealDataService dataService;
+    private MealDataService dataService;
 
-    public List<MealDTO> findByParams(String initial,String name){
+    public MealService(MealDataService dataService) {
+        this.dataService = dataService;
+    }
+
+    public List<MealDTO> findByParams(String initial, String name){
+
         if(name != null){
             return findByName(name);
+        }else if(initial !=null){
+            return findByInitialLetter(initial);
         }
-        return findByInitialLetter(initial);
+        return null;
 
     }
 
     private List<MealDTO> findByName(String name){
+
         return dataService.findMealsByName(name).getMeals();
     }
 

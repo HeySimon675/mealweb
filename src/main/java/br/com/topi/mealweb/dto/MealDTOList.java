@@ -10,13 +10,13 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class MealsDTO {
+public class MealDTOList {
 
     @SerializedName("meals")
     @Expose
     private List<MealDTO> meals;
 
-    public MealsDTO() {
+    public MealDTOList() {
         meals = null;
     }
 
