@@ -17,16 +17,12 @@
 
 
 <header th:fragment="search-header">
-    <div class="search-header row col-md-10 mx-auto justify-content-between">
-        <div class="col-5">
-            <h1>MealWeb - listando refeições</h1>
-        </div>
-
-        <form method="get" th:action="@{'/meals'}" class="row col-5 justify-content-end">
+    <div class="search-header mx-auto row">
+        <h1>MealWeb - listando refeições</h1>
+        <form method="get" th:action="@{'/meals'}" class="row col-6 justify-content-end">
             <input type="text" class="col-5 search-input form-control" placeholder="      Pesquisar" id="name" name="name" >
             <button type="submit" class=""><span class="fas fa-search"></span></button>
         </form>
-
 
     </div>
 </header>
