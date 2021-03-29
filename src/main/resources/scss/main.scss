@@ -29,7 +29,9 @@ body {
     font-weight: 700;
     color: $secondary;
 
-
+    @media screen and (max-width: 900px){
+      font-size: 1.5rem;
+    }
     @media screen and (max-width: 500px){
       font-size: 1.4rem;
     }
@@ -59,4 +61,39 @@ body {
   input{
     height: 1rem;
   }
+}
+
+.pagination-btn-group{
+
+
+
+  a{
+    line-height: 1.5rem !important;
+    padding: 8px 15px !important;
+
+
+    @media screen and (max-width: 1200px){
+      padding: 6px 13px !important;
+    }
+    @media screen and (max-width: 1025px){
+      padding: 5px 11px !important;
+      font-size: 0.8rem !important;
+    }
+    @media screen and (max-width: 768px){
+      padding: 4px 8px !important;
+      font-size: 0.7rem !important;
+    }
+    @media screen and (max-width: 450px){
+      padding: 3px 8px !important;
+      font-size: 0.6rem !important;
+    }
+
+
+
+
+
+
+  }
+
+
 }

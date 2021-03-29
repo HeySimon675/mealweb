@@ -27,12 +27,14 @@
     </div>
 </header>
 
-<div th:fragment="pagination" class="btn-group-sm pagination mx-auto pt-2 col-md-10 justify-content-end" role="group">
-    <th:block th:each="letter : ${T(br.com.topi.mealweb.utils.Letter).values()}">
-        <div class=""><a th:href="@{/meals(page=${letter.name()})}"
-           th:text="${letter}"
-           th:class="${letter == pageLetter} ? 'btn btn-pagination-active' : 'btn btn-pagination' "></a></div>
-    </th:block>
+<div th:fragment="pagination" class="pagination-btn-group mx-auto pt-2 col-md-10" role="group">
+    <div class="btn-group-sm pagination row">
+        <th:block th:each="letter : ${T(br.com.topi.mealweb.utils.Letter).values()}">
+            <div class=""><a th:href="@{/meals(page=${letter.name()})}"
+                             th:text="${letter}"
+                             th:class="${letter == pageLetter} ? 'btn btn-pagination-active' : 'btn btn-pagination' "></a></div>
+        </th:block>
+    </div>
      <div >
 
 
