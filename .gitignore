@@ -37,3 +37,8 @@ out/
 .vscode/
 /node_modules/
 /src/main/java/br/com/topi/mealweb/dto/Meals.java
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -25,7 +25,7 @@ public class MealClient {
     }
 
     static Interceptor provideLoggingInterceptor() {
-        return new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+        return new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE);
     }
 
     static OkHttpClient provideOkHttp() {

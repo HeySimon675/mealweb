@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id "com.github.node-gradle.gulp" version "1.5.3"
+	id 'distribution'
 }
 
 group = 'br.com.topi'
@@ -28,6 +29,24 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation ('org.springframework.boot:spring-boot-starter-test'){
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+distributions {
+	main {
+		baseName = project.name
+		contents {
+			into('lib/') {  // Copy the following jars to the lib/ directory in the distribution archive
+				from jar
+				from configurations.runtimeClasspath
+				dirMode = 0755
+				fileMode = 0644
+			}
+			from('src/main/dist') {  // Contents of this directory are copied by default
+				dirMode = 0755
+				fileMode = 0644
+			}
+		}
 	}
 }
 
