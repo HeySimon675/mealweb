@@ -5,15 +5,27 @@
     font-size: 0.8rem;
     font-weight: 600;
     justify-content: space-between;
+
+    @media screen and (max-width: 450px) {
+      font-size: 0.6rem;
+      padding: 0.4rem;
+    }
   }
 
   p{
     font-weight: 700;
     font-size: 0.875rem;
+
+    @media screen and (max-width: 450px) {
+      font-size: 0.6rem;
+    }
   }
 
   img{
     max-width: 200px;
+    @media screen and (max-width: 450px) {
+      max-width: 100px;
+    }
   }
 
   &-va-center{
@@ -35,19 +47,25 @@
   $min-td-width: 700px;
 
 
-  @media screen and (min-width: 900px) {
-    $min-td-width : 300px
-  }
-
-  @media screen and (min-width: 1250px) {
-    $min-td-width : 500px
-  }
-
-  @media screen and (min-width: 1900px){
+  @media screen and (max-width: 1900px){
     $max-td-width : 700px
   }
+  @media screen and (max-width: 1250px) {
+    $min-td-width : 500px
+  }
+  @media screen and (max-width: 900px) {
+    $min-td-width : 300px
+  }
+  @media screen and (max-width: 450px) {
+    $min-td-width : 200px
+  }
+
   max-width: $max-td-width;
   min-width: $min-td-width;
+}
+
+.content-table > tbody > tr > td:last-child{
+  max-width: 100px;
 }
 
 .column-sm{
